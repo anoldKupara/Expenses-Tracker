@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Expenses_Tracker.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Expenses_Tracker.DbContexts
 {
-    public class ExpenseTrackerDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Budget> Budgets { get; set; }
         public DbSet<Expense> Expenses { get; set; }
@@ -10,7 +11,7 @@ namespace Expenses_Tracker.DbContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=ExpenseTracker;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Data Source=ANOLD-KUPARA;Initial Catalog=ExpensesDB;Integrated Security=True;TrustServerCertificate=True");
         }
     }
 }
